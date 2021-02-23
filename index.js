@@ -11,3 +11,9 @@ app.get('/api/songs', (req,res) => {
     const songs = repoContext.songs.findAllSongs();
     return res.send(songs);
 });
+
+app.get('/api/songs/:id', (req, res) => {
+    const id = req.params.id;
+    const song = repoContext.songs.findSongById(id);
+    return res.send(song);
+});
